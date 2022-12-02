@@ -1,39 +1,25 @@
-<p align="center"><img src="/art/logo.svg" alt="Logo Laravel Breeze"></p>
-
-<p align="center">
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/dt/laravel/breeze" alt="Total Downloads">
-    </a>
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/v/laravel/breeze" alt="Latest Stable Version">
-    </a>
-    <a href="https://packagist.org/packages/laravel/breeze">
-        <img src="https://img.shields.io/packagist/l/laravel/breeze" alt="License">
-    </a>
-</p>
+# Vue + Inertia + Laravel + Tailwind css (VILT) Starter Kit
 
 ## Introduction
 
-Breeze provides a minimal and simple starting point for building a Laravel application with authentication. Styled with Tailwind, Breeze publishes authentication controllers and views to your application that can be easily customized based on your own application's needs.
+VILT Starter provides a quick and simple starting point for adding Vue, Inertia and Tailwind css to your fresh Laravel application. VILT Starter publishes views and configuration files to your application that can be easily customized based on your own application's needs.
 
-Laravel Breeze is powered by Blade and Tailwind. If you're looking for a more robust Laravel starter kit that includes two factor authentication, Livewire / Inertia support, and more, check out [Laravel Jetstream](https://jetstream.laravel.com).
-
-## Official Documentation
-
-Documentation for Breeze can be found on the [Laravel website](https://laravel.com/docs/starter-kits#laravel-breeze).
-
-## Contributing
-
-Thank you for considering contributing to Breeze! You can read the contribution guide [here](.github/CONTRIBUTING.md).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-Please review [our security policy](https://github.com/laravel/breeze/security/policy) on how to report security vulnerabilities.
 
 ## License
 
-Laravel Breeze is open-sourced software licensed under the [MIT license](LICENSE.md).
+VILT Starter is open-sourced software licensed under the [MIT license](LICENSE.md).
+
+## Thanks
+
+Big thanks to the Team at [Laravel](https://laravel.com), [Inertia](https://inertiajs.com/), [Vue](https://vuejs.org/) and [Tailwind](https://tailwindcss.com/) for their hard works 
+
+## Setup
+
+1. Install the package with composer
+```shell
+$ composer require mel-zedeks\vilt-starter
+```
+2. Run Laravel artisan command to install the UI
+```shell
+$ php artisan vilt:install
+```
