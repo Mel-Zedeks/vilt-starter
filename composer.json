@@ -1,0 +1,32 @@
+{
+    "name": "mel-zedeks/vilt-starter",
+    "description": "Configure your freshly installed laravel project with Vue, Inertia, and Tailwind css using vite as frontend tooling",
+    "keywords": ["laravel", "vue","inertia","tailwindcss","vilt","zedeks"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "MelZedeks\\ViltStarter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Melchizedek Logosu (Mel-Zedeks)",
+            "email": "melchi.lg@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^8.0.2",
+        "illuminate/console": "^9.21",
+        "illuminate/filesystem": "^9.21",
+        "illuminate/support": "^9.21",
+        "illuminate/validation": "^9.21"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MelZedeks\\ViltStarter\\ViltStarterServiceProvider"
+            ]
+        }
+    }
+}
