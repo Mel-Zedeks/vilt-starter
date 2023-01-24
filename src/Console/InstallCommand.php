@@ -249,10 +249,10 @@ class InstallCommand extends Command
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Console/Commands', app_path('Console/Commands'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Composable'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', app_path('js/Composable'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', resource_path('js/Composable'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('views/mails'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/views/mails', app_path('views/mails'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/views/mails', resource_path('views/mails'));
 
 
         // Requests...
@@ -268,7 +268,7 @@ class InstallCommand extends Command
         // Views...
         copy(__DIR__ . '/../../stubs/views/app.blade.php', resource_path('views/app.blade.php'));
 
-        copy(__DIR__ . '/../../stubs/config/smsgist.php', app_path('config/smsgist.php'));
+        copy(__DIR__ . '/../../stubs/config/smsgist.php', base_path('config/smsgist.php'));
 
 //        copy(__DIR__ . '/../../stubs/Services/PageTitle.php', app_path('Services/PageTitle.php'));
 //        copy(__DIR__ . '/../../stubs/Services/SMSGist.php', app_path('Services/SMSGist.php'));
@@ -280,9 +280,7 @@ class InstallCommand extends Command
         if (!(new Filesystem)->exists(resource_path('js/Pages/Components'))) {
             (new Filesystem)->makeDirectory(resource_path('js/Pages/Components'));
         }
-//        if (!(new Filesystem)->exists(resource_path('js/Pages/Composable'))) {
-//            (new Filesystem)->makeDirectory(resource_path('js/Pages/Composable'));
-//        }
+
         if (!(new Filesystem)->exists(resource_path('js/Pages/Layouts'))) {
             (new Filesystem)->makeDirectory(resource_path('js/Pages/Layouts'));
         }
