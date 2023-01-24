@@ -203,7 +203,12 @@ class InstallCommand extends Command
     protected function installInertiaVueStack()
     {
         // Install Inertia...
-        $this->requireComposerPackages('inertiajs/inertia-laravel:^0.6.3', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.0');
+        $this->requireComposerPackages(
+            'inertiajs/inertia-laravel:^0.6.3', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.0',
+            "spatie/laravel-medialibrary:^10.7",
+            "spatie/laravel-permission:^5.7",
+            "propaganistas/laravel-phone:^4.4",
+        );
 
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
@@ -217,12 +222,25 @@ class InstallCommand extends Command
                     'postcss' => '^8.4.18',
                     'tailwindcss' => '^3.2.1',
                     'vue' => '^3.2.41',
+                    "moment" => "^2.29.4",
+                    "pinia" => "^2.0.28",
+                    "vue-multiselect" => "^3.0.0-alpha.2",
+                    "zedeks-vue-inertia-datatable" => "^2.1.0"
                 ] + $packages;
         });
 
-        // Controllers...
-//        (new Filesystem)->ensureDirectoryExists(app_path('Http/Controllers'));
-//        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/inertia-common/app/Http/Controllers', app_path('Http/Controllers'));
+
+        (new Filesystem)->ensureDirectoryExists(app_path('Filters'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Filters', app_path('Filters'));
+
+        (new Filesystem)->ensureDirectoryExists(app_path('Notifications'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Notifications', app_path('Notifications'));
+
+        (new Filesystem)->ensureDirectoryExists(app_path('Services'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Services', app_path('Services'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/Composable'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', app_path('js/Pages/Composable'));
 
         // Requests...
 //        (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests'));
@@ -236,12 +254,36 @@ class InstallCommand extends Command
 
         // Views...
         copy(__DIR__ . '/../../stubs/views/app.blade.php', resource_path('views/app.blade.php'));
+        copy(__DIR__ . '/../../stubs/views/mails/general_mail.blade.php', resource_path('views/mails/general_mail.blade.php'));
+
+//
+        copy(__DIR__ . '/../../stubs/Traits/HasFilters.php', app_path('Traits/HasFilters.php'));
+        copy(__DIR__ . '/../../stubs/config/smsgist.php', app_path('config/smsgist.php'));
+
+//        copy(__DIR__ . '/../../stubs/Services/PageTitle.php', app_path('Services/PageTitle.php'));
+//        copy(__DIR__ . '/../../stubs/Services/SMSGist.php', app_path('Services/SMSGist.php'));
 
 
-        if(!(new Filesystem)->exists(resource_path('js/Pages'))){
+        copy(__DIR__ . '/../../stubs/Broadcasting/SMSGistChannel.php', app_path('Broadcasting/SMSGistChannel.php'));
+
+        copy(__DIR__ . '/../../stubs/Console/Commands/DataTable.php', app_path('Console/Commands/DataTable.php'));
+
+
+        if (!(new Filesystem)->exists(resource_path('js/Pages'))) {
             (new Filesystem)->makeDirectory(resource_path('js/Pages'));
         }
-
+        if (!(new Filesystem)->exists(resource_path('js/Pages/Components'))) {
+            (new Filesystem)->makeDirectory(resource_path('js/Pages/Components'));
+        }
+//        if (!(new Filesystem)->exists(resource_path('js/Pages/Composable'))) {
+//            (new Filesystem)->makeDirectory(resource_path('js/Pages/Composable'));
+//        }
+        if (!(new Filesystem)->exists(resource_path('js/Pages/Layouts'))) {
+            (new Filesystem)->makeDirectory(resource_path('js/Pages/Layouts'));
+        }
+        if (!(new Filesystem)->exists(resource_path('js/Pages/store'))) {
+            (new Filesystem)->makeDirectory(resource_path('js/Pages/store'));
+        }
 
 
 //        if (!$this->option('dark')) {
@@ -259,6 +301,7 @@ class InstallCommand extends Command
 
         // Tailwind / Vite...
         copy(__DIR__ . '/../../stubs/css/app.css', resource_path('css/app.css'));
+        copy(__DIR__ . '/../../stubs/css/multiselect.css', resource_path('css/multiselect.css'));
         copy(__DIR__ . '/../../stubs/postcss.config.js', base_path('postcss.config.js'));
         copy(__DIR__ . '/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
         copy(__DIR__ . '/../../stubs/jsconfig.json', base_path('jsconfig.json'));
