@@ -239,8 +239,21 @@ class InstallCommand extends Command
         (new Filesystem)->ensureDirectoryExists(app_path('Services'));
         (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Services', app_path('Services'));
 
-        (new Filesystem)->ensureDirectoryExists(resource_path('js/Pages/Composable'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', app_path('js/Pages/Composable'));
+        (new Filesystem)->ensureDirectoryExists(app_path('Traits/'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Traits', app_path('Traits'));
+
+        (new Filesystem)->ensureDirectoryExists(app_path('Broadcasting/'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Broadcasting', app_path('Broadcasting'));
+
+        (new Filesystem)->ensureDirectoryExists(app_path('Console/Commands'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Console/Commands', app_path('Console/Commands'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Composable'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', app_path('js/Composable'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('views/mails'));
+        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/views/mails', app_path('views/mails'));
+
 
         // Requests...
 //        (new Filesystem)->ensureDirectoryExists(app_path('Http/Requests'));
@@ -254,19 +267,11 @@ class InstallCommand extends Command
 
         // Views...
         copy(__DIR__ . '/../../stubs/views/app.blade.php', resource_path('views/app.blade.php'));
-        copy(__DIR__ . '/../../stubs/views/mails/general_mail.blade.php', resource_path('views/mails/general_mail.blade.php'));
 
-//
-        copy(__DIR__ . '/../../stubs/Traits/HasFilters.php', app_path('Traits/HasFilters.php'));
         copy(__DIR__ . '/../../stubs/config/smsgist.php', app_path('config/smsgist.php'));
 
 //        copy(__DIR__ . '/../../stubs/Services/PageTitle.php', app_path('Services/PageTitle.php'));
 //        copy(__DIR__ . '/../../stubs/Services/SMSGist.php', app_path('Services/SMSGist.php'));
-
-
-        copy(__DIR__ . '/../../stubs/Broadcasting/SMSGistChannel.php', app_path('Broadcasting/SMSGistChannel.php'));
-
-        copy(__DIR__ . '/../../stubs/Console/Commands/DataTable.php', app_path('Console/Commands/DataTable.php'));
 
 
         if (!(new Filesystem)->exists(resource_path('js/Pages'))) {
