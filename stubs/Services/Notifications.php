@@ -12,8 +12,8 @@ class Notifications
     {
         if (!$string) return;
         session()->flash('notifications', [
-            'bannerStyle' => 'success',
-            'banner' => $string
+            'alertStyle' => 'success',
+            'alertMessage' => $string
         ]);
     }
 
@@ -21,8 +21,8 @@ class Notifications
     {
         if (!$string) return;
         session()->flash('notifications', [
-            'bannerStyle' => 'danger',
-            'banner' => $string
+            'alertStyle' => 'error',
+            'alertMessage' => $string
         ]);
     }
 
@@ -30,8 +30,8 @@ class Notifications
     {
         if (!$string) return;
         session()->flash('notifications', [
-            'bannerStyle' => 'info',
-            'banner' => $string
+            'alertStyle' => 'info',
+            'alertMessage' => $string
         ]);
     }
 
@@ -39,8 +39,8 @@ class Notifications
     {
         if (!$string) return;
         session()->flash('notifications', [
-            'bannerStyle' => 'warning',
-            'banner' => $string
+            'alertStyle' => 'warning',
+            'alertMessage' => $string
         ]);
     }
 

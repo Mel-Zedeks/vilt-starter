@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Services\Notifications;
+use App\Services\PageTitle;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 use Tightenco\Ziggy\Ziggy;
@@ -38,6 +40,12 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            'pageTitle' => function () {
+                return PageTitle::getCurrent();
+            },
+            'notifications' => function () {
+                return Notifications::getAll();
+            },
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),

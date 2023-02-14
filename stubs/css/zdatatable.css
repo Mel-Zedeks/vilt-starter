@@ -1,0 +1,122 @@
+/**
+Zedeks DataTable css
+*/
+
+.z-table {
+    @apply min-w-full divide-y divide-gray-200
+}
+
+.z-table-header {
+    @apply bg-primary-500  mb-1 py-3 h-12 /*text-base font-semibold text-gray-50 text-left*/
+}
+.z-table-header-tr{
+    /*@apply*/
+}
+.z-table-header-tr-th{
+    @apply py-3 px-6 text-left text-xs uppercase text-white font-bold tracking-wider
+}
+
+.z-table-body{
+    /*@apply */
+}
+.z-table-body-tr{
+    @apply focus:outline-none h-12 border border-gray-100 rounded
+}
+.z-table-body-tr-td{
+    @apply py-3 px-5 text-sm font-medium text-primary-500
+}
+
+.z-btn {
+    @apply focus:bg-primary-900 mt-4 sm:mt-0 inline-flex items-start justify-start px-6 py-3 bg-primary-500 hover:bg-primary-900 focus:outline-none rounded
+}
+.z-btn span{
+    @apply text-sm font-medium leading-none text-white
+}
+.z-btn-sm {
+    @apply ml-1 focus:bg-primary-500 mt-4 sm:mt-0 inline-flex items-start justify-start px-4 py-2 bg-primary-700 hover:bg-primary-600 focus:outline-none rounded
+}
+.z-btn-sm span{
+    @apply text-xs font-medium leading-none text-white
+}
+.pagination-active{
+    @apply bg-primary-600
+}
+.pagination-active span{
+    @apply  text-white
+}
+/*filter*/
+.filter-wrapper{
+    @apply flex items-center
+}
+.filter-btn{
+    @apply rounded-full focus:outline-none focus:ring-2  focus:bg-indigo-50 focus:ring-indigo-800 mx-1
+}
+.filter-btn div{
+    @apply py-2 px-4   rounded-full
+}
+.filter-btn div p{
+    @apply text-sm
+}
+.selected-filter-btn{
+    @apply bg-indigo-100 text-indigo-700
+}
+.unselected-filter-btn{
+    @apply text-gray-600 hover:text-indigo-700 hover:bg-indigo-100
+}
+/*filter*/
+
+/*action dropdown*/
+.z-table-action-dropdown{
+    @apply relative py-3 px-5
+}
+.z-table-action-dropdown button{
+    @apply  relative z-10 block rounded-md bg-primary-500 p-2 focus:outline-none text-white
+}
+.z-table-action-dropdown button svg{
+    @apply h-4 w-4
+}
+.z-table-action-dropdown .z-table-action-dropdown-backdrop{
+    @apply fixed inset-0 h-full w-full z-10
+}
+.z-table-action-dropdown .action-items-wrapper{
+    @apply absolute  mt-2 py-2 w-48 bg-white rounded-md shadow-xl z-20 border border-primary-800/30
+}
+.z-table-action-dropdown .action-items-wrapper a{
+    @apply block px-4 py-2 text-sm capitalize text-primary-500 hover:bg-primary-500 hover:text-white
+}
+/*action dropdown*/
+
+.z-table-wrapper{
+    @apply w-full   p-6
+}
+
+.z-table-title{
+    @apply text-2xl font-semibold text-primary-500
+}
+
+.z-table-loader-wrapper{
+    @apply absolute w-full h-full bg-gray-50 bg-opacity-50 flex justify-center items-center
+}
+.z-table-loader-wrapper p{
+    @apply text-xl p-4 bg-gray-200 rounded-md
+}
+/*.z-tr-hover{*/
+/*    @apply hover:bg-primary-500/80 hover:text-white;*/
+/*}*/
+/*.z-tr-hover>.z-table-action-dropdown button{*/
+/*    b*/
+/*}*/
+.z-tr-actions{
+    @apply text-primary-500 space-x-3
+}
+
+
+.z-btn-pg{
+    @apply bg-primary-500 text-white text-xs font-medium py-1 px-2 ml-0.5
+}
+.z-input{
+    @apply rounded-sm w-full p-2 focus:ring-primary-500 focus:outline-none focus:ring focus:ring-opacity-40 text-primary-500 bg-gray-50 ring ring-opacity-25 ring-primary-500/30
+}
+.z-select{
+    @apply rounded-sm  p-2 focus:ring-primary-500 focus:outline-none focus:ring focus:ring-opacity-25 bg-gray-50 ring ring-opacity-25 ring-primary-500 w-16
+}

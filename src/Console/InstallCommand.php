@@ -217,42 +217,56 @@ class InstallCommand extends Command
                     '@inertiajs/inertia-vue3' => '^0.6.0',
                     '@inertiajs/progress' => '^0.2.7',
                     '@tailwindcss/forms' => '^0.5.3',
-                    '@vitejs/plugin-vue' => '^3.0.0',
+                    '@vitejs/plugin-vue' => '^4.0.0',
                     'autoprefixer' => '^10.4.12',
                     'postcss' => '^8.4.18',
                     'tailwindcss' => '^3.2.1',
                     'vue' => '^3.2.41',
+                ] + $packages;
+        });
+
+        $this->updateNodePackages(function ($packages) {
+            return [
+                    "@fortawesome/fontawesome-svg-core" => "^6.2.1",
+                    "@fortawesome/free-brands-svg-icons" => "^6.2.1",
+                    "@fortawesome/free-regular-svg-icons" => "^6.2.1",
+                    "@fortawesome/free-solid-svg-icons" => "^6.2.1",
+                    "@fortawesome/vue-fontawesome" => "^3.0.3",
+                    "@tailwindcss/line-clamp" => "^0.4.2",
                     "moment" => "^2.29.4",
                     "pinia" => "^2.0.28",
                     "vue-multiselect" => "^3.0.0-alpha.2",
                     "zedeks-vue-inertia-datatable" => "^2.1.0"
                 ] + $packages;
-        });
+        }, false);
 
 
         (new Filesystem)->ensureDirectoryExists(app_path('Filters'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Filters', app_path('Filters'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Filters', app_path('Filters'));
 
         (new Filesystem)->ensureDirectoryExists(app_path('Notifications'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Notifications', app_path('Notifications'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Notifications', app_path('Notifications'));
 
         (new Filesystem)->ensureDirectoryExists(app_path('Services'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Services', app_path('Services'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Services', app_path('Services'));
 
         (new Filesystem)->ensureDirectoryExists(app_path('Traits/'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Traits', app_path('Traits'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Traits', app_path('Traits'));
 
         (new Filesystem)->ensureDirectoryExists(app_path('Broadcasting/'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Broadcasting', app_path('Broadcasting'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Broadcasting', app_path('Broadcasting'));
 
         (new Filesystem)->ensureDirectoryExists(app_path('Console/Commands'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Console/Commands', app_path('Console/Commands'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Console/Commands', app_path('Console/Commands'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('js/Composable'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/Composable', resource_path('js/Composable'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Composable', resource_path('js/Composable'));
+
+        (new Filesystem)->ensureDirectoryExists(resource_path('js/Components'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/Components', resource_path('js/Components'));
 
         (new Filesystem)->ensureDirectoryExists(resource_path('views/mails'));
-        (new Filesystem)->copyDirectory(__DIR__.'/../../stubs/views/mails', resource_path('views/mails'));
+        (new Filesystem)->copyDirectory(__DIR__ . '/../../stubs/views/mails', resource_path('views/mails'));
 
 
         // Requests...
@@ -277,15 +291,15 @@ class InstallCommand extends Command
         if (!(new Filesystem)->exists(resource_path('js/Pages'))) {
             (new Filesystem)->makeDirectory(resource_path('js/Pages'));
         }
-        if (!(new Filesystem)->exists(resource_path('js/Pages/Components'))) {
-            (new Filesystem)->makeDirectory(resource_path('js/Pages/Components'));
-        }
+//        if (!(new Filesystem)->exists(resource_path('js/Components'))) {
+//            (new Filesystem)->makeDirectory(resource_path('js/Components'));
+//        }
 
-        if (!(new Filesystem)->exists(resource_path('js/Pages/Layouts'))) {
-            (new Filesystem)->makeDirectory(resource_path('js/Pages/Layouts'));
+        if (!(new Filesystem)->exists(resource_path('js/Layouts'))) {
+            (new Filesystem)->makeDirectory(resource_path('js/Layouts'));
         }
-        if (!(new Filesystem)->exists(resource_path('js/Pages/store'))) {
-            (new Filesystem)->makeDirectory(resource_path('js/Pages/store'));
+        if (!(new Filesystem)->exists(resource_path('js/store'))) {
+            (new Filesystem)->makeDirectory(resource_path('js/store'));
         }
 
 
@@ -305,6 +319,7 @@ class InstallCommand extends Command
         // Tailwind / Vite...
         copy(__DIR__ . '/../../stubs/css/app.css', resource_path('css/app.css'));
         copy(__DIR__ . '/../../stubs/css/multiselect.css', resource_path('css/multiselect.css'));
+        copy(__DIR__ . '/../../stubs/css/zdatatable.css', resource_path('css/zdatatable.css'));
         copy(__DIR__ . '/../../stubs/postcss.config.js', base_path('postcss.config.js'));
         copy(__DIR__ . '/../../stubs/tailwind.config.js', base_path('tailwind.config.js'));
         copy(__DIR__ . '/../../stubs/jsconfig.json', base_path('jsconfig.json'));
