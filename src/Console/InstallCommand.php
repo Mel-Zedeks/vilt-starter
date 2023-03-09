@@ -205,16 +205,16 @@ class InstallCommand extends Command
     {
         // Install Inertia...
         $this->requireComposerPackages(
-            'inertiajs/inertia-laravel:^0.6.3|^0.6.9', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.0',
+            'inertiajs/inertia-laravel:^0.6.9', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.5',
             "spatie/laravel-medialibrary:^10.7",
-            "spatie/laravel-permission:^5.7|^5.9",
-            "propaganistas/laravel-phone:^4.4",
+            "spatie/laravel-permission:^5.9",
+            "propaganistas/laravel-phone:^5.0",
         );
 
         // NPM Packages...
         $this->updateNodePackages(function ($packages) {
             return [
-                    '@inertiajs/inertia' => '^0.11.0',
+                    '@inertiajs/inertia' => '^0.11.1',
                     '@inertiajs/inertia-vue3' => '^0.6.0',
                     '@inertiajs/progress' => '^0.2.7',
                     '@tailwindcss/forms' => '^0.5.3',
