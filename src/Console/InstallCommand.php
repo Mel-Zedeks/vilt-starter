@@ -205,9 +205,9 @@ class InstallCommand extends Command
     {
         // Install Inertia...
         $this->requireComposerPackages(
-            'inertiajs/inertia-laravel:^0.6.3', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.0',
+            'inertiajs/inertia-laravel:^0.6.3|^0.6.9', 'laravel/sanctum:^2.8', 'tightenco/ziggy:^1.0',
             "spatie/laravel-medialibrary:^10.7",
-            "spatie/laravel-permission:^5.7",
+            "spatie/laravel-permission:^5.7|^5.9",
             "propaganistas/laravel-phone:^4.4",
         );
 
